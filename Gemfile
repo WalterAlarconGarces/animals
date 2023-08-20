@@ -73,3 +73,5 @@ end
 
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'pagy', '~> 6.0' # omit patch digit
+gem "pg_search", "~> 2.3"
+gem 'pg', '~> 1.5', '>= 1.5.3'

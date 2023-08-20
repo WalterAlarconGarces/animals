@@ -37,10 +37,11 @@
           <% end%>
         </div>
       <%end%>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+      <%= form_with url: posts_path, method: :get do |form|%>
+ <%= form.text_field :query_text, placeholder: 'Title or body', value: params[:query_text]%>
+ <button class="btn btn-outline-success" type="submit">Search</button>
+<%end%>
     </div>
   </div>
 </nav>

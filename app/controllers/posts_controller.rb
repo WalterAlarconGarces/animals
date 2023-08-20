@@ -5,6 +5,10 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @pagy, @posts = pagy(Post.all.reverse_order)
+
+    if params[:query_text].present?
+      @posts = @posts.search_full_text(params[:query_text])
+    end
   end
 
   # GET /posts/1 or /posts/1.json
