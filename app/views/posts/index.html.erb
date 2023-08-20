@@ -6,10 +6,10 @@
   <% @posts.each do |post| %>
     <%= render post %>
     <p>
-      <%= link_to "Show this post", post %>
+      <%= link_to "Show this post", post, class: "btn btn-success" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path %>
+<%= link_to "New post", new_post_path , class: "btn btn-success"%>
 <%== pagy_bootstrap_nav(@pagy) %>

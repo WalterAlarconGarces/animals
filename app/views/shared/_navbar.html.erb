@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Animals</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,22 +10,27 @@
         <li class="nav-item">
           <%=link_to 'Posts', posts_path, class: 'nav-link'%>
         </li>
+
+
+        <% if user_signed_in?%>
         <li class="nav-item">
           <%=link_to 'New post', new_post_path, class: 'nav-link'%>
         </li>
-
+        <li class="nav-item">
+          <%=button_to 'Sign out', destroy_user_session_path, method: :delete,class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+                  <%=link_to 'Edit profile', edit_user_registration_path, class: 'nav-link'%>
+          </li>
+        <% else%>
         <li class="nav-item">
           <%=link_to 'Sign up', new_user_registration_path, class: 'nav-link'%>
         </li>
         <li class="nav-item">
           <%=link_to 'Sign in', new_user_session_path, class: 'nav-link'%>
         </li>
-        <li class="nav-item">
-          <%=button_to 'Sign out', destroy_user_session_path, method: :delete,class: 'nav-link'%>
-        </li>
-        <li class="nav-item">
-          <%=link_to 'Edit profile', edit_user_registration_path, class: 'nav-link'%>
-        </li>
+      <%end%>
+        
       
         
       </ul>
@@ -39,8 +44,8 @@
       <%end%>
 
       <%= form_with url: posts_path, method: :get do |form|%>
- <%= form.text_field :query_text, placeholder: 'Title or body', value: params[:query_text]%>
- <button class="btn btn-outline-success" type="submit">Search</button>
+ <%= form.text_field :query_text, placeholder: 'Title or body', value: params[:query_text], id: "search_field"%>
+ <button class="btn btn-outline-info" type="submit">Search</button>
 <%end%>
     </div>
   </div>
