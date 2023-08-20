@@ -29,6 +29,14 @@
       
         
       </ul>
+      <%if user_signed_in?%>
+        <div class="mx-3">
+          Welcome <%=current_user.email%>, user ID:<%=current_user.id%>
+          <% if current_user.image.attached?%>
+            <%= image_tag(current_user.image, style: "height: 50px;", id: "profile_img", class: "mx-3")%>
+          <% end%>
+        </div>
+      <%end%>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
