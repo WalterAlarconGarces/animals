@@ -1,26 +1,16 @@
-
-
 <h1>Posts</h1>
-
-<div id="posts">
+<div id="posts" class="row row-cols-4">
   <% @posts.each do |post| %>
     <%= render post %>
-    
   <% end %>
 </div>
-
-
-
-
 <div class="container text-end">
   <div class="row text-end">
     <div class="col text-end">
-      
     </div>
-    
     <div class="col text-end">
-    <%if @pagy.pages >= 1 %>
-      <%== pagy_bootstrap_nav(@pagy) %>
+      <%if @pagy.pages >= 1 %>
+        <%== pagy_bootstrap_nav(@pagy) %>
       <%end%>
     </div>
   </div>
