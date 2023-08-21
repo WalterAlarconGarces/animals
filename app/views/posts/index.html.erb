@@ -9,5 +9,19 @@
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path , class: "btn btn-success"%>
-<%== pagy_bootstrap_nav(@pagy) %>
+
+
+
+<div class="container text-end">
+  <div class="row text-end">
+    <div class="col text-end">
+      
+    </div>
+    
+    <div class="col text-end">
+    <%if @pagy.pages >= 1 %>
+      <%== pagy_bootstrap_nav(@pagy) %>
+      <%end%>
+    </div>
+  </div>
+</div>
