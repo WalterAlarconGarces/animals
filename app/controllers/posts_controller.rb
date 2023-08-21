@@ -9,6 +9,8 @@ class PostsController < ApplicationController
     if params[:query_text].present?
       @posts = @posts.search_full_text(params[:query_text])
     end
+
+    @likes = Like.all
   end
 
   # GET /posts/1 or /posts/1.json

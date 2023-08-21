@@ -31,7 +31,9 @@
         </li>
       <%end%>
         
-      
+      <li class="nav-item">
+          <%=link_to 'GitHub', "https://github.com/WalterAlarconGarces/animals", class: 'nav-link'%>
+        </li>
         
       </ul>
       <%if user_signed_in?%>
@@ -42,6 +44,8 @@
           <% end%>
         </div>
       <%end%>
+
+      
 
       <%= form_with url: posts_path, method: :get do |form|%>
  <%= form.text_field :query_text, placeholder: 'Title or body', value: params[:query_text], id: "search_field"%>

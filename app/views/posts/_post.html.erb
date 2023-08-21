@@ -16,7 +16,8 @@
       <% if @post.present? %>
         <li class="list-group-item">How many likes: <%=@post.likes.count %></li>
       <% else %>
-        <li class="list-group-item">How many likes: 0</li>
+        <li class="list-group-item">How many likes: <%= @likes.where(post_id: post.id).count%></li>
+        
       <% end%>
       <%if user_signed_in?%>
       <% like = current_user.likes.find_by(post: @post)%>
