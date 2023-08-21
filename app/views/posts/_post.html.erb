@@ -18,7 +18,9 @@
       <% else %>
         <li class="list-group-item">How many likes: 0</li>
       <% end%>
+      <%if user_signed_in?%>
       <% like = current_user.likes.find_by(post: @post)%>
+      <%end%>
       <%if @post.present?%>
         <% if like.nil?%>
           <li class="list-group-item"><%= button_to "like", likes_path, params: {like:{post_id:@post.id}},method: :post	 ,class: "btn btn-primary"%></li>
