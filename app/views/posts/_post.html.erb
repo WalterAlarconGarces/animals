@@ -13,6 +13,7 @@
       <li class="list-group-item">Created at: <%=post.created_at%></li>
       <li class="list-group-item">By user ID: <%=post.user_id%></li>
       <li class="list-group-item">Post ID: <%=post.id%></li>
+     
       <% if @post.present? %>
         <li class="list-group-item">How many likes: <%=@post.likes.count %></li>
       <% else %>
