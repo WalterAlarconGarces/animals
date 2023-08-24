@@ -74,7 +74,7 @@ class PostsController < ApplicationController
   end
 
   def authorize_user!
-    if current_user.admin!
+    if !current_user.admin
       redirect_to root_path, notice: 'You are not authorized to perform this action.'
     end
   end
