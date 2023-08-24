@@ -38,7 +38,7 @@
       </ul>
       <%if user_signed_in?%>
         <div class="mx-3">
-          Welcome <%=current_user.email%>, user ID:<%=current_user.id%> , name: <%=current_user.name%>
+          Welcome <%=current_user.email%>, user ID:<%=current_user.id%> , name: <%=current_user.name%>, Admin: <%=current_user.admin%>
           <% if current_user.avatar.attached?%>
             <%= image_tag(current_user.avatar, style: "height: 50px;", id: "profile_img", class: "mx-3")%>
           <% end%>
