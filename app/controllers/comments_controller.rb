@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
         if @comment.save
           redirect_to @commentable, notice: 'Comment was successfully created.'
         else
-          redirect_to @commentable, alert: 'Error: Comment could not be created.'
+          redirect_to @commentable, notice: 'Error: Comment could not be created.'
         end
       end
 

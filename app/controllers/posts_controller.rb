@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: %i[edit update destroy]
+  before_action :authorize_user!, only: [:new, :create]
   # GET /posts or /posts.json
   def index
     @pagy, @posts = pagy(Post.all.reverse_order)
@@ -70,6 +71,12 @@ class PostsController < ApplicationController
   def correct_user
     @post = current_user.posts.find_by(id: params[:id])
     redirect_to root_path, notice: 'Not authorized to edit this post.' if @post.nil?
+  end
+
+  def authorize_user!
+    unless current_user.admin?
+      redirect_to root_path, notice: 'You are not authorized to perform this action.'
+    end
   end
 
   private

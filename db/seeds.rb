@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+    @user = User.find(1)
+    @user.update_attribute(:admin, true)
+    @user.save
+
+    puts User.find(1).inspect
+   
