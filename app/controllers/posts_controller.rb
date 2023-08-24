@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     if params[:query_text].present?
       @posts = @posts.search_full_text(params[:query_text])
     end
+    
     @users = User.all
     @likes = Like.all
     

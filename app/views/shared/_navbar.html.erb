@@ -38,9 +38,9 @@
       </ul>
       <%if user_signed_in?%>
         <div class="mx-3">
-          Welcome <%=current_user.email%>, user ID:<%=current_user.id%>
-          <% if current_user.image.attached?%>
-            <%= image_tag(current_user.image, style: "height: 50px;", id: "profile_img", class: "mx-3")%>
+          Welcome <%=current_user.email%>, user ID:<%=current_user.id%> , name: <%=current_user.name%>
+          <% if current_user.avatar.attached?%>
+            <%= image_tag(current_user.avatar, style: "height: 50px;", id: "profile_img", class: "mx-3")%>
           <% end%>
         </div>
       <%end%>

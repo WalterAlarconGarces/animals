@@ -20,10 +20,15 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" , class: "form-control"%>
   </div>
+<div class="field mx-3">
+     <%= f.label :name %><br />
+ <%= f.text_field :name, autocomplete: "name", class: 'form-control' %>
+  </div>
 
 <div class="field mx-3">
   <%= f.label "Choose a profile picture", class: "form-label" %>
-  <%= f.file_field :image, class: "form-control"%>
+  <%= f.file_field :avatar, class: "form-control",
+        direct_upload: true %>
 </div>
 
   <div class="actions  mx-3 text-end">
