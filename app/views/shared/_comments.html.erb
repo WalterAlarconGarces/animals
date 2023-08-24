@@ -9,8 +9,12 @@
     Comment ID: <%= comment.id %>
   </div>
   <div class="card-body">
-    <h5 class="card-title">User <%=comment.user_id%> says: </h5>
-    <p class="card-text"><%= comment.body %></p>
+    <% if true %>
+    <h5 class="card-title"><%=image_tag User.find(comment.user_id).avatar , id: "mini_avatar"%> <%=User.find(comment.user_id).name%>, user ID: <%=comment.user_id%>, says: </h5>
+    <% else %>
+    <h5 class="card-title"> User ID <%=comment.user_id%>, says: </h5>
+    <% end%>
+    <p class="card-text mx-4"><%= comment.body %></p>
     
   </div>
 </div>

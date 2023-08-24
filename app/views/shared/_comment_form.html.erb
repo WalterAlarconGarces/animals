@@ -2,7 +2,7 @@
   <div class="card-body">
     <% if user_signed_in?%>
       <div class="mb-3 mx-3">
-        <label for="exampleFormControlInput1" class="form-label">Add a comment as user <%=current_user.id%>:</label>
+        <label for="exampleFormControlInput1" class="form-label">Add a comment as user <%=User.find(current_user.id).name%>, ID: <%=current_user.id%>:</label>
       </div>
     <% end%>
     <%= form_with(model: [ commentable, Comment.new(commentable: commentable) ], local: true) do |form| %>

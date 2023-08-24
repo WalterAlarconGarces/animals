@@ -12,10 +12,10 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Created at: <%=post.created_at%></li>
       <li class="list-group-item">Post ID: <%=post.id%></li>
-      <% if @users.any? %>
+      <% if @users.present? %>
       <li class="list-group-item">By user ID: <%=post.user_id%>, User photo: <%=image_tag @users.find(post.user_id).avatar , id: "mini_avatar"%></li>
      <% else %>
-     <li class="list-group-item">By user ID: <%=post.user_id%>, User PHOTO: ???</li>
+     <li class="list-group-item">By user ID: <%=post.user_id%>, User photo: <%=image_tag User.find(post.user_id).avatar , id: "mini_avatar"%></li>
      <% end%>
       <% if @post.present? %>
       
