@@ -13,7 +13,11 @@
       <li class="list-group-item">Created at: <%=post.created_at%></li>
       <li class="list-group-item">Post ID: <%=post.id%></li>
       <% if @users.present? %>
-      <li class="list-group-item">By user ID: <%=post.user_id%>, User photo: <%=image_tag @users.find(post.user_id).avatar , id: "mini_avatar"%></li>
+        <%if @users.find(post.user_id).avatar.present?%>
+          <li class="list-group-item">By user ID: <%=post.user_id%>, User photo: <%=image_tag @users.find(post.user_id).avatar , id: "mini_avatar"%></li>
+        <%else%>
+          <li class="list-group-item">By user ID: <%=post.user_id%>, User photo: NO IMAGE</li>
+        <%end%>
      <% else %>
      <li class="list-group-item">By user ID: <%=post.user_id%>, User photo: <%=image_tag User.find(post.user_id).avatar , id: "mini_avatar"%></li>
      <% end%>
